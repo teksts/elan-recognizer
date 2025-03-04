@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMD CMDVersion="1.1"
+     xmlns="http://www.clarin.eu/cmd/"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.clarin.eu/cmd/ 
+         http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1430905751617/xsd">
+    <Header></Header>
+    <Resources>
+        <ResourceProxyList></ResourceProxyList>
+        <JournalFileProxyList></JournalFileProxyList>
+        <ResourceRelationList></ResourceRelationList>
+    </Resources>
+
+    <Components>
+        <RECOGNIZER>
+            <!-- Basic info about the recognizer -->
+            <recognizer recognizerType="local"
+                        runLinux="bash -il ./test_recognizer.sh"
+                        runMac="bash -il ./test_recognizer.sh"
+                        runWin="cmd /c .\test_recognizer.bat"
+                        info="Minimal Python Tier Reader">
+                My Minimal Recognizer
+            </recognizer>
+
+            <!-- Optionally link to documentation or instructions (HTML, MD, or external URL) -->
+            <documentation>test_recognizer_instructions.md</documentation>
+
+            <!-- Input: a single tier, required (optional='false'), text/plain mimetype. -->
+            <input level="basic"
+                   type="tier"
+                   default="none"
+                   mimetypes="text/plain"
+                   optional="false"
+                   info="Select tier to read/print">
+                input_tier
+            </input>
+
+            <!-- Output: a single tier with the same data, just to show we can produce an output -->
+            <output level="basic"
+                    type="tier"
+                    optional="false"
+                    mimetypes="text/xml"
+                    info="Output tier with mirrored data">
+                output_tier
+            </output>
+        </RECOGNIZER>
+    </Components>
+</CMD>
